@@ -40,14 +40,23 @@ header {
     border-radius: 8px;
   }
 }
-
 .notification-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-::ng-deep .pie-label {
-  font-size: 20px !important;
-  margin: 0 5px;
+button {
+  background-color: #04838f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 10px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  box-shadow: 3px 3px 10px #70707055;
+  &:hover {
+    box-shadow: 1px 1px 8px #707070ff;
+  }
 }

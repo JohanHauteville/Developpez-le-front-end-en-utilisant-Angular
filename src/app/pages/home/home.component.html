@@ -1,23 +1,29 @@
 
-
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
-<header>
-    <h2>Medals per Country</h2>
-    <div class="header-infos">
-        <div class="header-infos__number-of-jos">
-            <h3>Number of JOs</h3>
-            <p>{{ (olympics$ | async)?.length }}</p>
-            
-        </div>
-        <div class="header-infos__number-of-countries">
-            <h3>Number of countries</h3>
-            <p>{{ (olympics$ | async)?.length }}</p>
-            
-        </div>
-    </div>
-</header>
-<app-pie-chart *ngIf="olympics$ | async as olympicsData" [olympicsData]="olympicsData"></app-pie-chart>
+<ng-container *ngIf="olympics$ | async as olympics; else loading">
+        <header>
+            <h2>Medals per Country</h2>
+            <div class="header-infos">
+                <ng-container *ngIf="olympics[0]?.participations  as participations; else loading">
+                    <div class="header-infos__number-of-jos">
+                        <h3>Number of JOs</h3>
+                        <p> {{ participations.length }} </p>
+                        
+                    </div>
+                    <div class="header-infos__number-of-countries">
+                        <h3>Number of countries</h3>
+                        <p>{{ (olympics$ | async)?.length }}</p>
+                        
+                    </div>
+                </ng-container>
+            </div>
+        </header>
+</ng-container>
 <app-pie-chart-ngx *ngIf="olympics$ | async as olympicsData" [olympicsData]="olympicsData"></app-pie-chart-ngx>
-<!-- <app-pie-chart *ngFor="let olympic of olympics$ | async" [olympics]="olympic"></app-pie-chart> -->
 
-<!-- *ngFor="let faceSnap of faceSnaps$ | async" [faceSnap]="faceSnap" -->
+
+<ng-template #loading>
+    <div class="notification-container">
+        <p>Data Loading...</p>
+    </div>
+</ng-template>
+  

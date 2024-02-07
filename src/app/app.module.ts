@@ -9,10 +9,13 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { NgChartsModule } from 'ng2-charts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { PieChartNgxComponent } from './pie-chart-ngx/pie-chart-ngx.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+// import { LineChartComponent } from '@swimlane/ngx-charts'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailComponent } from './detail/detail.component';
+import { LineChartNxComponent } from './line-chart-nx/line-chart-nx.component'
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent, PieChartComponent, PieChartNgxComponent],
+  declarations: [AppComponent, HomeComponent, NotFoundComponent, PieChartComponent, PieChartNgxComponent, DetailComponent, LineChartNxComponent],
   imports: [BrowserModule,BrowserAnimationsModule , AppRoutingModule, HttpClientModule, NgChartsModule, NgxChartsModule],
   providers: [],
   bootstrap: [AppComponent],

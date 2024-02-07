@@ -74,6 +74,8 @@ export class PieChartComponent  implements OnChanges {
                     // console.log(chart);
                     // console.log(tooltip);
                     // console.log(tooltipEl);
+                    console.log(this.olympicsData);
+                    
                     
                     
                     // return [`<span>${label}</span>`,`<span>${iconHtml}  ${value}</span>`];

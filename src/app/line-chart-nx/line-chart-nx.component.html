@@ -1,0 +1,22 @@
+<div class="line-chart__container">
+
+    <ngx-charts-line-chart
+    [results]="data"
+    [view]="view"
+    [legend]="false"
+    [showGridLines]="true"
+    [showYAxisLabel]="true"
+    [showXAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [xAxisLabel]='"Date"'
+ 
+    
+    >
+    </ngx-charts-line-chart>
+    
+</div>
+
+<ng-template #tooltip>
+    <h1>Coucou</h1>
+</ng-template>

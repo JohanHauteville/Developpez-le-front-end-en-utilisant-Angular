@@ -1,9 +1,21 @@
-<ngx-charts-pie-chart
-[results]="data"
-[view]="view"
-[legend]="false"
-[explodeSlices]="explodeSlices"
-[labels]="true"
-[tooltipText]="customTooltipText"
 
-></ngx-charts-pie-chart>
+<ng-container *ngIf=" olympicsData; else loading">
+    <div class="pie-chart__container">
+
+        <ngx-charts-pie-chart
+        [results]="data"
+        [view]="view"
+        [legend]="false"
+        [explodeSlices]="explodeSlices"
+        [labels]="true"
+        [tooltipText]="customTooltipText"
+        (select)="handleClic($event)"
+        
+        ></ngx-charts-pie-chart>
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    <p>Loading...</p>
+</ng-template>
+  
