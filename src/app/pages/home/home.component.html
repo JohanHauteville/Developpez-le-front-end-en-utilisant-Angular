@@ -18,12 +18,13 @@
             </div>
         </header>
 </ng-container>
-<app-pie-chart-ngx *ngIf="olympics$ | async as olympicsData" [olympicsData]="olympicsData"></app-pie-chart-ngx>
+<div class="pie-container">
+    <app-pie-chart-ngx *ngIf="olympics$ | async as olympicsData" [olympicsData]="olympicsData"></app-pie-chart-ngx>
+
+</div>
 
 
 <ng-template #loading>
-    <div class="notification-container">
-        <p>Data Loading...</p>
-    </div>
+    <app-notification></app-notification>
 </ng-template>
   

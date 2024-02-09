@@ -29,7 +29,8 @@
 
 
 <ng-template #loading>
-    <div class="notification-container">
-        <p>Data Loading...</p>
-    </div>
+    <!-- <div class="notification-container">
+        <p> {{ notification$ | async}} </p>
+    </div> -->
+    <app-notification></app-notification>
 </ng-template>

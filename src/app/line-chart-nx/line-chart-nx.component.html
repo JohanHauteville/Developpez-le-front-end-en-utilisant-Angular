@@ -1,6 +1,7 @@
-<div class="line-chart__container">
+<div class="line-chart__container" #containerRef>
 
     <ngx-charts-line-chart
+    
     [results]="data"
     [view]="view"
     [legend]="false"
@@ -20,3 +21,8 @@
 <ng-template #tooltip>
     <h1>Coucou</h1>
 </ng-template>
+
+<!-- (window:resize)="
+        resizeChart(containerRef.offsetWidth)
+      " 
+    -->

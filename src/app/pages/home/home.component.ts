@@ -10,13 +10,17 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 })
 export class HomeComponent implements OnInit {
   public olympics$!: Observable<Olympic[]> ;
+  // public notification: string = "Initializing..."
+
+  notification$!: Observable<string>;
   // public olympics$: Observable<any> = of(null);
 
   constructor(private olympicService: OlympicService) {}
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
-    console.log(this.olympics$);
-    
+    this.notification$ = this.olympicService.notification$
+
   }
+
 }

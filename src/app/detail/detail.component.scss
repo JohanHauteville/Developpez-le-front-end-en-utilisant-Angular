@@ -18,6 +18,9 @@ header {
 .header-infos {
   display: flex;
   gap: 40px;
+  @media screen and (max-width: 600px) {
+    gap: 10px;
+  }
   h3,
   p {
     padding: 0;

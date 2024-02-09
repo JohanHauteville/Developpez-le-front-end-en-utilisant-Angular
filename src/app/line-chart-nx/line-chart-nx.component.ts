@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Olympic } from '../core/models/Olympic';
 
 @Component({
@@ -16,7 +16,7 @@ export class LineChartNxComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    this.resizeLineChart()
   }
 
   // Méthode appelée lors d'un changement sur les inputs
@@ -46,6 +46,33 @@ export class LineChartNxComponent implements OnInit {
   tooltipFormatting(value: any): string {
     // Vous pouvez personnaliser le texte du tooltip ici
     return `<span>${value.name}: ${value.value}</span>`;
+  }
+
+  /* ---- Auto resize chart ---- */
+ resizeChart(width: any): void {
+  this.view = [width, 320]
+}
+@HostListener('window: resize')
+  onWindoWResize(){
+    this.resizeLineChart()
+  }
+  //  Méthode permettant de modifier la taille du pie chart en fonction de la taille de la page
+  resizeLineChart():void{
+    if(window.innerWidth < 768){
+      this.view = [window.innerWidth * .9 , 300]
+      if(window.innerWidth < 600){
+        this.view = [window.innerWidth * 1 , 300]
+        // this.showLabel = false
+        // this.showLegend = true
+      } else {
+        // this.showLabel = true
+        // this.showLegend = false
+        this.view = [window.innerWidth * .9 , 300]
+      }
+    }else {
+      this.view = [700 , 300]
+      
+    }
   }
 
 
